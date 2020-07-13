@@ -1,0 +1,197 @@
+/*////SASS//////////////////////////////////////////////*/
+
+//Maintain aspect ratio
+@mixin maintain-ratio($ratio: 1 1) {
+	@if length($ratio) < 2 or length($ratio)>2 {
+		@warn "$ratio must be a list with two values.";
+	}
+	$width: 100%;
+	$height: percentage(nth($ratio, 2) / nth($ratio, 1));
+	width: $width;
+	height: 0;
+	padding-bottom: $height;
+}
+
+//COLORS
+$white:#fff;
+@mixin white {
+	color: $white;
+}
+
+$green:#5cb85c;
+@mixin green {
+	color: $green;
+}
+
+$lightgrey:#FAF8F8;
+@mixin grey {
+	color: $grey;
+}
+
+$grey:#f5f5f5;
+@mixin grey {
+	color: $grey;
+}
+
+$fbBlue:#3b5998;
+@mixin fbBlue {
+	color: $fbBlue;
+}
+
+$black:#333;
+@mixin black {
+	color: $black;
+}
+
+$orange:#FF6600;
+@mixin orange {
+	color: $orange;
+}
+
+/*LIGHTEN / DARKER COLOR EXAMPLE*/
+
+$greydarker: darken($grey, 0%);
+@mixin greydarker {
+  color:$greydarker;
+}
+
+
+/*////ENDSASS//////////////////////////////////////*/
+
+
+/*////FONTS//////////////////////////////////////*/
+
+//LOGO
+
+
+//HEADINGS
+@font-face {
+	font-family: heading1;
+	src: url(../fonts/You_Are_Loved.eot);
+	src: url(../fonts/You_Are_Loved.eot?#iefix) format('embedded-opentype'), url(../fonts/You_Are_Loved.woff) format('woff'), url(../fonts/You_Are_Loved.ttf) format('truetype'), url(../fonts/You_Are_Loved.svg#svgFontName) format('svg')
+}
+
+@font-face {
+	font-family: heading2;
+	src: url(../fonts/Montserrat-Regular/Montserrat-Regular.eot);
+	src: url(../fonts/Montserrat-Regular/Montserrat-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/Montserrat-Regular/Montserrat-Regular.woff) format('woff'), url(../fonts/Montserrat-Regular/Montserrat-Regular.ttf) format('truetype'), url(../fonts/Montserrat-Regular/Montserrat-Regular.svg#svgFontName) format('svg')
+}
+
+//TEXT
+@font-face {
+	font-family: mainText;
+	src: url(../fonts/Domine/Domine.eot);
+	src: url(../fonts/Domine/Domine.eot?#iefix) format('embedded-opentype'), url(../fonts/Domine/Domine.woff) format('woff'), url(../fonts/Domine/Domine.ttf) format('truetype'), url(../fonts/Domine/Domine.svg#svgFontName) format('svg')
+}
+
+//FONTS
+
+/*@mixin font {
+		font-family: 'opensans', sans-serif;
+	}*/
+
+@mixin font-weight($weight) {
+	$weights: ( thin: 100, light: 300, normal: 400, medium: 500, semi-bold: 600, bold: 700, );
+	$output: $weight;
+	@if map-has-key($weights, $weight) {
+		$output: map-get($weights, $weight);
+	}
+	font-weight: $output;
+}
+
+
+/*.class_example {
+  @include font-weight(thin);
+}*/
+
+//COLORS
+$orange:#ff6600;
+@mixin orange {
+	color: #ff6600;
+}
+
+
+
+
+
+//BOTTOM MENU (FOOTER)
+.footer-container{
+	width: 100%;
+	background-color: #1b1f20;
+	margin-top: -1px;
+}
+.footer-container, .footer_contacts{
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+
+.footer-menu{
+	//background-color: #1b1f20;
+	padding: 30px 0;
+	text-align: center;
+	
+}
+
+.footer-menu ul{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	
+}
+
+.footer-menu li{
+	display: inline-block;
+	
+}
+
+.footer-menu li+li{
+	padding-top: 30px;
+	
+}
+
+.footer-menu a{
+	color: white;
+	font-size: 1.5em;
+}
+
+.footer-menu a:hover, .footer-menu  .current-menu-item a{
+	color: $orange;
+}
+
+@media (min-width: 768px) {
+	.footer-menu ul{
+		flex-direction:row;
+
+	}
+	.footer-menu li+li{
+		padding-top: 0;
+	
+}
+
+	.footer-menu a{
+		font-size: 2em;
+	}
+}
+
+//CONTACT (FOOTER)
+.layout--container.contacts-footer{
+	max-width: unset;
+}
+
+.footer_contacts > div{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between
+}
+
+.footer_contacts > div > div{
+	
+}
+
+@media (min-width: 768px) {
+	.footer_contacts > div{
+
+		flex-direction: row;
+	}
+	
+}

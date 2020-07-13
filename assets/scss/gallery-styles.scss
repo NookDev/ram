@@ -1,0 +1,178 @@
+/*////SASS//////////////////////////////////////////////*/
+
+//Maintain aspect ratio
+@mixin maintain-ratio($ratio: 1 1) {
+	@if length($ratio) < 2 or length($ratio)>2 {
+		@warn "$ratio must be a list with two values.";
+	}
+	$width: 100%;
+	$height: percentage(nth($ratio, 2) / nth($ratio, 1));
+	width: $width;
+	height: 0;
+	padding-bottom: $height;
+}
+
+//FONTS
+
+/*@mixin font {
+		font-family: 'opensans', sans-serif;
+	}*/
+
+
+/*@mixin font-weight($weight) {
+		$weights: ( thin: 100, light: 300, normal: 400, medium: 500, semi-bold: 600, bold: 700, );
+		$output: $weight;
+		@if map-has-key($weights, $weight) {
+			$output: map-get($weights, $weight);
+		}
+		font-weight: $output;
+	}*/
+
+
+/*.class_example {
+  @include font-weight(thin);
+}*/
+
+//COLORS
+$orange:#ff6600;
+@mixin orange {
+	color: #ff6600;
+}
+
+
+/*
+	$mediumblue:#00568C;
+	@mixin mediumblue {
+		color: #00568C;
+	}
+	
+	$lightblue:#0181c5;
+	@mixin lightblue {
+		color: #0181c5;
+	}
+	
+	$lightgray:#F4F4F4;
+	@mixin lightgray {
+		color: #F4F4F4;
+	}
+	
+	$darkgray:#9b9b9b;
+	@mixin darkgray {
+		color: #9b9b9b;
+	}*/
+.gallery{
+	margin-top: -20px;
+	
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	
+}
+
+
+.image-gallery {
+	border: 1px solid $orange;
+	border-radius: 3px;
+	width: 85%;
+	margin: 20px auto 30px auto;
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+	
+}
+
+
+.feat-image {
+	@include maintain-ratio(1 1);
+	position: relative; //set as parent
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	overflow: hidden;
+}
+
+//featured image
+.feat-image .wp-post-image {
+	position: absolute; //child of feat-image
+	//position the image in the middle of its container. 
+	top: -9999px;
+	right: -9999px;
+	bottom: -9999px;
+	left: -9999px;
+	margin: auto;
+
+	// These values simulate background-size: cover 
+	min-height: 100%;
+	
+	max-width: none;
+	width: auto;
+	
+	
+}
+
+.image-gallery .entry-header h2 {
+	font-size: 1.5em;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	border-top: 3px solid $orange;
+	box-sizing: padding-box;
+	color: white;
+	background-color: $orange;
+	//background-color: white;
+	//color: $orange;
+}
+
+@media (min-width: 425px) {
+	.image-gallery {
+	width: 67%;
+	margin: 20px auto 20px auto;
+	}
+}
+
+@media (min-width: 768px) {
+	.gallery{
+	margin-top: -60px;
+	}
+	.image-gallery {
+	width: 45%;
+	margin: 20px auto 20px auto;
+	}
+	.image-gallery:last-child:nth-child(odd) {
+	margin-left: 20px;
+	
+}
+
+}
+
+
+@media (min-width: 1024px) {
+	.image-gallery {
+	width: 30%;
+	margin: 40px auto 0px auto;
+	}
+	.image-gallery:last-child:nth-child(even) {
+	margin-left: 20px;
+	}
+	.image-gallery:last-child:nth-child(odd) {
+	margin-left: 20px;
+	
+}
+}
+
+/*@media (min-width: 1200px) {
+	.image-gallery {
+	width: 23%;
+	margin: 20px auto 50px auto;
+	}
+	
+}
+
+@media (min-width: 1440px) {
+	.image-gallery {
+	width: 23%;
+	margin: 20px auto 50px auto;
+	}
+	
+}*/

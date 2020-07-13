@@ -1,0 +1,150 @@
+/*////SASS//////////////////////////////////////////////*/
+
+//Maintain aspect ratio
+@mixin maintain-ratio($ratio: 1 1) {
+	@if length($ratio) < 2 or length($ratio)>2 {
+		@warn "$ratio must be a list with two values.";
+	}
+	$width: 100%;
+	$height: percentage(nth($ratio, 2) / nth($ratio, 1));
+	width: $width;
+	height: 0;
+	padding-bottom: $height;
+}
+
+//FONTS
+
+/*@mixin font {
+		font-family: 'opensans', sans-serif;
+	}*/
+
+@mixin font-weight($weight) {
+	$weights: ( thin: 100, light: 300, normal: 400, medium: 500, semi-bold: 600, bold: 700, );
+	$output: $weight;
+	@if map-has-key($weights, $weight) {
+		$output: map-get($weights, $weight);
+	}
+	font-weight: $output;
+}
+
+
+/*.class_example {
+  @include font-weight(thin);
+}*/
+
+//COLORS
+$orange:#ff6600;
+@mixin orange {
+	color: #ff6600;
+}
+$green:#5cb85c;
+@mixin green {
+	color: #5cb85c;
+}
+$fluro:#ccff15;
+@mixin fluro {
+	color : #ccff15;
+}
+$black:#1b1f20;
+@mixin black {
+	color : #1b1f20;
+}
+//icon section styled for dard background
+.i-section-dark-bg {  
+	box-shadow:0 6px 5px -5px #333;
+	background-color: grey;
+
+	
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,7f7f7f+100&0+0,1+100 */
+background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(127,127,127,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(127,127,127,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(127,127,127,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#7f7f7f',GradientType=0 ); 
+	
+	//border-top: 5px solid #1b1f20;
+	//border-bottom: 5px solid;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	//margin-top: 60px
+}
+
+.i-section-dark-bg .careers_article{ 
+	margin-top: 60px;
+	margin-bottom: 60px;
+	font-size: 1.2rem
+}
+
+.i-section-dark-bg a, .i-section-dark-bg .careers_article--icon{    
+	margin: 0;
+	background-color: white;
+    border-radius: 5px;
+}
+
+
+.i-section-dark-bg a, .i-section-dark-bg .center-icon i{    
+	padding: 5px
+}
+.i-section-dark-bg a{    
+	padding-left: 10px;
+	padding-right: 10px;
+	//border: 1px solid #1b1f20;
+	margin-top: 30px;
+}
+
+.i-section-dark-bg .careers_article--text{
+	color: #1b1f20;
+}
+.i-section-dark-bg .careers_article--footer{
+	margin-top: 30px
+}
+.i-section-dark-bg .careers_article--footer a{
+	color: $black!important;//override theme styling - sets icon and button color
+    font-weight: 600;
+	background-color:$fluro;
+	border: 1px solid $black;
+	box-shadow: 0 6px 5px -5px #333;
+}
+.i-section-dark-bg .careers_article--footer a:hover{
+	color: $fluro!important;//override theme styling - sets icon and button color
+    font-weight: 600;
+	background-color:$black;
+	border: 1px solid $fluro;
+	box-shadow: unset
+}
+
+.i-section-dark-bg .careers_article--footer a:after{
+	//color: $black;
+    font-weight: 800;
+}
+
+.careers_article i {
+	display: none;
+}
+
+.i-section-dark-bg img{
+	height: 120px;
+    width: auto;
+	margin: 30px auto;
+}
+.i-section-dark-bg .page_header--title{
+	color:#1b1f20;
+}
+
+@media (min-width: 992px) {
+	
+	.i-section-dark-bg .page_header--title{
+		color: #1b1f20;
+	//-webkit-text-stroke: 1px #d3d3d3;
+	font-size: 4em;
+}
+	
+	.i-section-dark-bg {    
+		margin-top: 60px
+	}
+	.i-section-dark-bg .careers_article{
+		margin-top: 0;
+		
+	}
+
+	
+}

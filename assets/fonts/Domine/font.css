@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Domine-Regular';
+  src: url('Domine-Regular.woff') format('woff'),
+       url('Domine-Regular.ttf') format('truetype'),
+       url('Domine-Regular.svg#Domine-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Domine';
+  src: url('Domine.eot');
+  src: url('Domine.woff2') format('woff2'),
+       url('Domine.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

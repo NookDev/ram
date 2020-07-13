@@ -1,0 +1,321 @@
+/*////SASS//////////////////////////////////////////////*/
+
+//Maintain aspect ratio
+@mixin maintain-ratio($ratio: 1 1) {
+	@if length($ratio) < 2 or length($ratio)>2 {
+		@warn "$ratio must be a list with two values.";
+	}
+	$width: 100%;
+	$height: percentage(nth($ratio, 2) / nth($ratio, 1));
+	width: $width;
+	height: 0;
+	padding-bottom: $height;
+}
+
+//COLORS
+$white:#fff;
+@mixin white {
+	color: $white;
+}
+
+$green:#5cb85c;
+@mixin green {
+	color: $green;
+}
+
+$lightgrey:#FAF8F8;
+@mixin grey {
+	color: $grey;
+}
+
+$grey:#f5f5f5;
+@mixin grey {
+	color: $grey;
+}
+
+$darkgrey:#777;
+@mixin darkgrey {
+	color: $darkgrey;
+}
+
+$black:#333;
+@mixin black {
+	color: $black;
+}
+
+$orange:#FF6600;
+@mixin orange {
+	color: $orange;
+}
+$blue:#50b1cf;
+@mixin blue {
+	color : #50b1cf;
+}
+$fluro:#ccff15;
+@mixin fluro {
+	color : #ccff15;
+}
+
+/*LIGHTEN / DARKER COLOR EXAMPLE*/
+
+$greydarker: darken($grey, 0%);
+@mixin greydarker {
+  color:$greydarker;
+}
+
+$lightblue: lighten($blue,30%);
+@mixin lightblue {
+  color:$lightblue;
+}
+$lightfluro: lighten($white,30%);
+@mixin lightfluro {
+  color:$lightfluro;
+}
+/*////ENDSASS//////////////////////////////////////*/
+
+
+/*////FONTS//////////////////////////////////////*/
+
+//LOGO
+
+
+//HEADINGS
+@font-face {
+	font-family: heading1;
+	src: url(../fonts/You_Are_Loved.eot);
+	src: url(../fonts/You_Are_Loved.eot?#iefix) format('embedded-opentype'), url(../fonts/You_Are_Loved.woff) format('woff'), url(../fonts/You_Are_Loved.ttf) format('truetype'), url(../fonts/You_Are_Loved.svg#svgFontName) format('svg')
+}
+
+@font-face {
+	font-family: heading2;
+	src: url(../fonts/Montserrat-Regular/Montserrat-Regular.eot);
+	src: url(../fonts/Montserrat-Regular/Montserrat-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/Montserrat-Regular/Montserrat-Regular.woff) format('woff'), url(../fonts/Montserrat-Regular/Montserrat-Regular.ttf) format('truetype'), url(../fonts/Montserrat-Regular/Montserrat-Regular.svg#svgFontName) format('svg')
+}
+
+//TEXT
+@font-face {
+	font-family: mainText;
+	src: url(../fonts/Domine/Domine.eot);
+	src: url(../fonts/Domine/Domine.eot?#iefix) format('embedded-opentype'), url(../fonts/Domine/Domine.woff) format('woff'), url(../fonts/Domine/Domine.ttf) format('truetype'), url(../fonts/Domine/Domine.svg#svgFontName) format('svg')
+}
+.quick-info-form-container{
+	box-shadow:0 6px 5px -5px #333;
+	
+}
+
+.booking-form-container{
+	overflow: hidden;
+}
+.booking-form-container .single-page .dark-col{
+	max-width: unset;
+
+}
+
+#main .booking-form-container > div{ //bring ph no and form together on mobile
+
+	margin-bottom: 15px;
+	padding-bottom: 0;
+}
+
+.base-form-styles {
+	padding: 15px 0;
+	//border: 1px solid $lightgrey;
+	display: block;
+	//background-color: $darkgrey;
+	//max-width: 90%;
+	margin: auto;
+	display: flex;
+    flex-direction: column;
+	float: unset;
+	//border-radius: 5px;	
+	font-size: 1.5em;
+	
+	
+	
+	
+	//DARK THEME
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d3d3d3+0,a9a9a9+100 */
+	background: rgb(211,211,211); /* Old browsers */
+	background: -moz-linear-gradient(45deg, rgba(211,211,211,1) 0%, rgba(169,169,169,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(45deg, rgba(211,211,211,1) 0%,rgba(169,169,169,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(45deg, rgba(211,211,211,1) 0%,rgba(169,169,169,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#a9a9a9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	
+	
+	//LIGHT THEME
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,d3d3d3+100 */
+	//background: rgb(255,255,255); /* Old browsers */
+	//background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(211,211,211,1) 100%); /* FF3.6-15 */
+	//background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(211,211,211,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	//	background: linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(211,211,211,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d3d3d3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	
+	
+}
+.base-form-styles  .col-xs-12{
+   // border-bottom: 1px solid black;
+	margin-top:75px
+	//max-width: 65%
+}
+.base-form-styles  .col-xs-6{
+   // border-bottom: 1px solid black;
+	margin: 30px 0 0 0;
+	//max-width: 65%
+}
+
+.base-form-styles .page_header{
+	margin: 0;
+	padding: 90px 0;
+	background-color: #ffffff;
+	max-width: 100%;
+	border-radius: 3px;
+	font-weight: 700
+}
+
+.base-form-styles .page_header .container{
+	max-width: 100%
+}
+
+.base-form-styles .page_header--title{
+	font-size: 2.5em;
+	//display: inline-block;
+	color:white;
+}
+
+//form inputs
+.base-form-styles  label, .base-form-styles  span{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.9em;
+	
+}
+#home-form.base-form-styles  fieldset{
+	width: 75%;
+    margin: auto;
+}
+#home-form.base-form-styles  label{
+	 font-size: 1.1em;
+}
+.base-form-styles  span{
+	font-size: 0.9em
+}
+.base-form-styles  h5{
+	padding: 0;
+	margin: 0;
+}
+.base-form-styles .hidden-input{
+	margin-top: 60px;
+    display: block;
+	
+
+}
+.base-form-styles .hidden-input + span{
+	margin-top: 30px;
+	//margin-left: 15px;
+	background-color: $lightblue;
+    padding: 15px 5px;
+	
+}
+//remove padding from inputs inside spans in hidden inputs
+#booking-delivery, #booking-shipping{
+    margin-top: 0;
+    padding: 0;
+}
+
+.base-form-styles .hidden-input + span:first-of-type{
+	color: $orange;
+	font-size: 0.6em;
+}
+//inputs
+.base-form-styles  label, .base-form-styles  h5{
+	//border-bottom: 1px solid white;
+	//border-bottom: 3px solid lightgrey;
+	border-bottom: 3px solid darkgrey;
+	//border-bottom: 1px solid $green;
+	//border-bottom: 1px solid $orange;
+	//border-bottom: 1px solid black;
+	font-weight:bold;
+	color: #333
+}
+.base-form-styles .booking-period label{
+	border-bottom: unset;
+	font-weight:unset;
+	
+}
+#form-radio, #form-radio-2, #form-check{
+	padding-top: 15px;
+	width: 90%;
+	margin: auto;
+}
+
+.base-form-styles  #form-radio label, .base-form-styles  #form-radio-2 label, .base-form-styles  #form-check label{
+	border-bottom: unset;
+	padding: 15px 0;
+	margin-top: unset;
+	font-weight:unset;
+	width: 285px;
+}
+.base-form-styles  #form-radio input, .base-form-styles  #form-radio-2 input, , .base-form-styles  #form-check input{
+	margin:unset;
+	height: 18px;
+	width: 18px;
+	margin-top: unset;
+	
+	
+}
+.base-form-styles  select, .base-form-styles  input, .base-form-styles textarea{
+   // border-bottom: 1px solid black;
+	//max-width: 65%;
+	
+	background-color: $lightfluro;
+	width: 100%;
+	margin: auto;
+	margin-top: 30px;
+	padding: 15px 5px;
+	border-radius: 9px 0 9px 0; 
+}
+
+//input placeholders
+.base-form-styles  select::placeholder, .base-form-styles  input::placeholder, .base-form-styles textarea::placeholder{
+	color: black
+}
+
+.base-form-styles .contact_form--submit{
+	text-align: center;
+	padding: 0 15px;
+	
+}
+.base-form-styles .contact_form--submit input{
+	margin: 0 auto;
+	background-color:$fluro;
+	color:$black;
+	border: 1px solid black;
+	box-shadow: 0 6px 5px -5px #333;
+	width: 50%;
+}
+.base-form-styles .contact_form--submit input:hover{
+	background-color:$black;
+	color:$fluro;
+	border: 1px solid black;
+	box-shadow: none;
+}
+
+@media (min-width: 768px) {
+	.base-form-styles {
+		margin: 0;
+		}
+}
+
+@media (min-width: 992px) {
+	
+	
+	.base-form-styles {
+		flex-direction: row;
+		//border: 1px solid black;
+		max-width: 100%;
+		float: left;
+		}
+}
+

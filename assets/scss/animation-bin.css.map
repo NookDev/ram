@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "file": "animation-bin.css",
+  "sources": [
+    "animation-bin.scss"
+  ],
+  "names": [],
+  "mappings": "AAAA,AAA2B,cAAb,CAAC,WAAW,CAAC,oBAAoB,AAAA,CAC9C,OAAO,CAAE,EAAE,CACX"
+}

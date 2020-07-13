@@ -1,0 +1,388 @@
+/*////SASS//////////////////////////////////////////////*/
+
+//Maintain aspect ratio
+@mixin maintain-ratio($ratio: 1 1) {
+	@if length($ratio) < 2 or length($ratio)>2 {
+		@warn "$ratio must be a list with two values.";
+	}
+	$width: 100%;
+	$height: percentage(nth($ratio, 2) / nth($ratio, 1));
+	width: $width;
+	height: 0;
+	padding-bottom: $height;
+}
+
+//FONTS
+
+/*@mixin font {
+		font-family: 'opensans', sans-serif;
+	}*/
+
+@mixin font-weight($weight) {
+	$weights: ( thin: 100, light: 300, normal: 400, medium: 500, semi-bold: 600, bold: 700, );
+	$output: $weight;
+	@if map-has-key($weights, $weight) {
+		$output: map-get($weights, $weight);
+	}
+	font-weight: $output;
+}
+
+
+/*.class_example {
+  @include font-weight(thin);
+}*/
+
+//COLORS
+//COLORS
+$orange:#ff6600;
+@mixin orange {
+	color: $orange;
+}
+$green:#5cb85c;
+@mixin green {
+	color: $green;
+}
+$blue:#50b1cf;
+@mixin blue {
+	color : $blue;
+}
+$grey:#969696;
+$darkergrey : darken($grey,20%);
+@mixin darkergrey {
+	color : $darkergrey;
+}
+$fluro:#ccff15;
+@mixin fluro {
+	color : $fluro;
+}
+
+
+/*
+	$mediumblue:#00568C;
+	@mixin mediumblue {
+		color: #00568C;
+	}
+	
+	$lightblue:#0181c5;
+	@mixin lightblue {
+		color: #0181c5;
+	}
+	
+	$lightgray:#F4F4F4;
+	@mixin lightgray {
+		color: #F4F4F4;
+	}
+	
+	$darkgray:#9b9b9b;
+	@mixin darkgray {
+		color: #9b9b9b;
+	}*/
+
+
+@font-face {
+	font-family: heading-font;
+	src: url(../fonts/Montserrat-Regular/Montserrat-Regular.eot);
+	src: url(../fonts/Montserrat-Regular/Montserrat-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/Montserrat-Regular/Montserrat-Regular.woff) format('woff'), url(../fonts/Montserrat-Regular/Montserrat-Regular.ttf) format('truetype'), url(../fonts/Montserrat-Regular/Montserrat-Regular.svg#svgFontName) format('svg')
+}
+
+//TEXT
+
+
+@font-face {
+	font-family: text-font;
+	src: url(../fonts/Open-Sans/OpenSans-Regular.eot);
+	src: url(../fonts/Open-Sans/OpenSans-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/Open-Sans/OpenSans-Regular.woff) format('woff'), url(../fonts/Open-Sans/OpenSans-Regular.ttf) format('truetype'), url(../fonts/Open-Sans/OpenSans-Regular.svg#svgFontName) format('svg')
+}
+
+
+
+/*////IMAGES//////////////////////////////////////////////*/
+
+
+
+
+/*featured image*/
+
+
+/*.feat-image {
+		overflow: hidden;
+		position: relative; //set as parent
+	}
+	/*featured image*/
+
+
+/*.wp-post-image {
+		position: absolute; //child of feat-image
+		/* Position the image in the middle of its container. */
+
+
+/*top: -9999px;
+		right: -9999px;
+		bottom: -9999px;
+		left: -9999px;
+		margin: auto;*/
+
+
+/* The following values determine the exact image behaviour. */
+
+
+/* You can simulate background-size: cover/contain/etc.
+     by changing between min/max/standard width/height values.
+     These values simulate background-size: cover
+  */
+
+
+/*min-width: 100%;
+		max-width: none;
+	}*/
+
+
+/*////////////////////////////////////////////////////////////////////*/
+
+//RESET
+p, 
+li{
+	font-family: text-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: heading-font;
+}
+
+
+
+/*a {
+		text-decoration: none;
+	}
+	
+	a:visited {
+		@include darkblue;
+	}
+	
+	a:hover {
+		@include lightblue;
+	}
+	
+	a:active {
+		@include lightblue;
+	}*/
+
+
+/*.hentry {
+		margin: 0 0 0;
+	}*/
+
+//change to scale all text on website
+html {
+	font-size: 16px;
+	line-height: 1.5
+}
+
+p{
+	max-width: 85%;
+	margin: auto
+}
+
+p+p{padding-top: 30px}
+
+.highlight{
+	background-color: $fluro;
+}
+
+
+.dynamic_spacer{height:120px}//space betweeen sections
+
+.large-internal-heading{ //bring ph no and form together on mobile
+	width: 500%;
+    margin-left: -200%;
+}
+
+//header fonts
+#pmd-header > .container{
+	font-size:.5rem
+}
+
+//main content fonts
+.container {
+	font-size: .7rem;
+	max-width: 100%;
+} 
+.section-no-margin-top{margin-top: 0}
+
+//GLOBAL STYLES
+a {
+	color: $orange
+}
+
+a:hover {
+	color: red
+}
+
+a:visited {
+	color: orangered
+}
+
+.layout--container{
+	max-width: 500px;
+	margin: auto;
+}
+
+.layout--container > .container{
+	background-color: white;
+}
+
+.page_header{
+	padding: 90px 0;
+}
+.our_company--text p{
+	color:$darkergrey;
+}
+
+//SPECS / RATES
+.page-mini-excavator-specs .vc_col-sm-8,
+.page-excavator-hire-rates .vc_col-sm-8,
+.page-mini-excavator-specs .vc_col-xs-5,
+.page-excavator-hire-rates .vc_col-xs-5 {
+	width: 83.33%;
+}
+
+.page-excavator-hire-rates .wpb_single_image.vc_align_left,
+.page-mini-excavator-specs .wpb_single_image.vc_align_left {
+	text-align: center;
+}
+
+.case_study--section p,
+.case_study--section h2 {
+	padding: 10px 25px
+}
+
+.case_study--details dl dd {
+	padding: 0
+}
+
+.cta_banner--text {
+	text-align: center
+}
+
+//SECTION - BOOK NOW
+.contact_us .tab_navigation {
+	display: none
+}
+
+.button.-yellow {
+	background-color: $orange
+}
+
+.button.-yellow:hover {
+	background-color: orangered
+}
+
+.button:hover, a:hover{
+	cursor: pointer
+}
+
+.contact_item i {
+	color: $orange
+}
+
+.g-recaptcha {
+	margin-top: 20px
+}
+
+//FOOTER
+.footer_contacts--item {
+	width: 200px
+}
+
+.footer_contacts {
+	background: $orange;
+}
+
+.footer_copyrights--logo img {
+	max-width: 50px
+}
+
+@media (min-width: 768px) {
+	//header fonts
+	#pmd-header > .container{font-size:.8rem}
+	//main content fonts
+	.container {font-size: .8rem}
+
+	//HOME
+	.promo_banner--container {
+		border-bottom: 5px solid white;
+		//border-top: 5px solid #1b1f20
+	}
+	//SPECS / RATES                                                                                   
+	.page-mini-excavator-specs .wpb_single_image.vc_align_left,
+	.page-excavator-hire-rates .wpb_single_image.vc_align_left {
+		text-align: center;
+	}
+	.page-mini-excavator-specs .vc_col-sm-6,
+	.page-excavator-hire-rates .vc_col-sm-6 {
+		width: 100%;
+	}
+	.case_study--details dl {
+		width: 100%;
+	}
+	.case_study--section p,
+	.case_study--section h2 {
+		padding: 0 0 10px 0
+	}
+	//FOOTER
+	.footer_contacts--item {
+		width: 100%;
+	}
+	.footer_copyrights--item_copyrights {
+		width: 380px;
+		//margin-left: -30px;
+		margin-top: 10px;
+		margin-right: 20px;
+		float: right
+	}
+}
+
+@media (min-width: 768px) {
+	
+	.quickFacts{
+		margin: 0 auto; 
+		max-width: 90%;
+	}	
+	.intext-image{
+		padding: unset;
+	}
+	
+	.layout--container{
+		max-width: unset;
+	}
+
+	
+}
+
+@media (min-width: 992px) {
+
+	//SPECS / RATES
+	.page-mini-excavator-specs .vc_col-sm-8,
+	.page-excavator-hire-rates .vc_col-sm-8,
+	{
+		width: 40%
+	}
+	.page-mini-excavator-specs .vc_col-xs-5,
+	.page-excavator-hire-rates .vc_col-xs-5 {
+		width: 58%
+	}
+	.page-mini-excavator-specs .vc_col-sm-6,
+	.page-excavator-hire-rates .vc_col-sm-6 {
+		width: 60%;
+	}
+	.page-mini-excavator-specs .wpb_single_image.vc_align_left,
+	.page-excavator-hire-rates .wpb_single_image.vc_align_left {
+		text-align: left
+	}
+}
+
